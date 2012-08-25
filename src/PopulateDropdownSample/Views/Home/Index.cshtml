@@ -1,0 +1,22 @@
+﻿@using PopulateDropdownSample.Helpers.Extensions
+@using PopulateDropdownSample.Models
+@model HomeModel
+
+@using (Html.BeginForm())
+{
+    if (TempData.ContainsKey("Success"))
+    {
+        <div class="fade-out-message" style="background: #9c6; color: #000;padding: 5px;">@TempData["Success"]</div>
+    }
+    
+    <p>@Html.LabelFor(x => x.CommunityId)<br />@Html.DropDownListFor(x => x.CommunityId)</p>
+    <p>@Html.LabelFor(x => x.State)<br />@Html.DropDownListFor(x => x.State)</p>
+
+    <p><input type="submit" value="Submit" /></p>
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('.fade-out-message').fadeOut(5000);
+    });
+</script>
